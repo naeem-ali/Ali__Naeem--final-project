@@ -1,0 +1,124 @@
+@import "../../global.scss";
+.intro {
+  padding: 0;
+  position: relative;
+  background-color: #160a22;
+  overflow: hidden;
+}
+.home-bg {
+  width: 1920px;
+  height: 1030px;
+}
+
+.intro-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .left {
+    flex: 0.5;
+    height: 100%;
+
+    h1,
+    h4,
+    p,
+    a {
+      margin-left: 120px;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-top: 230px;
+      color: white;
+      span {
+        font-weight: 300;
+      }
+    }
+    h4 {
+      font-size: 1.8rem;
+      color: white;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+      span {
+        color: rgba(255, 81, 78, 1);
+      }
+    }
+    p {
+      width: 600px;
+      line-height: 27px;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      color: white;
+      margin-bottom: 25px;
+    }
+
+    a {
+      padding: 10px 25px;
+      background-color: rgba(255, 81, 78, 1);
+      color: white;
+      text-decoration: none;
+      transition: all 0.5s ease-in-out;
+    }
+
+    a:hover {
+      background-color: rgb(206, 43, 40);
+    }
+
+    .downArrow {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      height: 100px;
+      animation: slide-bottom 1s cubic-bezier(0.6, -0.28, 0.735, 0.045) 2s
+        infinite both;
+
+      span {
+        background-color: rgba(255, 81, 78, 1);
+        width: 32px;
+        height: 3px;
+        margin-bottom: 5px;
+        box-shadow: 0px 2px 7px 0px rgba(50, 50, 50, 0.27);
+      }
+
+      @keyframes slide-bottom {
+        0% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+        }
+        50% {
+          -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+        }
+        100% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+        }
+      }
+      .line-1 {
+        transform: rotate(-45deg) translate(2px, 15px);
+        transform-origin: right;
+      }
+      .line-2 {
+        transform: rotate(45deg) translate(1px, 0px);
+        transform-origin: left;
+      }
+    }
+  }
+  .right {
+    flex: 0.5;
+    height: 100%;
+
+    img {
+      width: 70%;
+      margin-top: 120px;
+      margin-left: 100px;
+    }
+  }
+}
