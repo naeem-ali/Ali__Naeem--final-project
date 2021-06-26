@@ -5,6 +5,7 @@ import Portfolio from "./components/portfolio/Portfolio";
 import Work from "./components/work/Work";
 import Contact from "./components/contact/Contact";
 import Menu from "./components/menu/Menu";
+// import Footer from "./components/footer/Footer";
 import { useState } from "react";
 
 function App() {

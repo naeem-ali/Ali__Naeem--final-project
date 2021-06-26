@@ -1,29 +1,77 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import "./portfolio.scss";
+import PortfolioList from "./PortfolioList";
+import {
+  webPortfolio,
+  mobilePortfolio,
+  designPortfolio,
+  brandingPortfolio,
+} from "../../components/data";
 const Portfolio = () => {
+  const [selected, setSelected] = useState("Web");
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    switch (selected) {
+      case "Web":
+        setData(webPortfolio);
+        break;
+      case "mobile":
+        setData(mobilePortfolio);
+        break;
+      case "design":
+        setData(designPortfolio);
+        break;
+      case "branding":
+        setData(brandingPortfolio);
+        break;
+      default:
+        setData(webPortfolio);
+    }
+  }, [selected]);
+
+  const list = [
+    {
+      id: "Web",
+      title: "Web App",
+    },
+    {
+      id: "mobile",
+      title: "Mobile App",
+    },
+    {
+      id: "design",
+      title: "Design",
+    },
+    {
+      id: "branding",
+      title: "Branding",
+    },
+  ];
   return (
     <div className="portfolio" id="portfolio">
-      <img src="images/pt.png" alt="" />
+      <img src="images/pt.png" alt="" className="bg-img-p" />
       <div className="main-container">
         <h1>Portfolio</h1>
 
         <ul>
-          <li>Web App</li>
-          <li>Mobile App</li>
-          <li>Design</li>
-          <li>Branding</li>
+          {list.map((item) => (
+            <PortfolioList
+              title={item.title}
+              active={selected === item.id}
+              setSelected={setSelected}
+              id={item.id}
+            />
+          ))}
         </ul>
 
         <div className="container">
-          <div className="item">
-            <img
-              src="https://images.creativemarket.com/0.1.0/ps/3972588/580/386/m2/fpnw/wm0/1c-.jpg?1518088177&s=fb925fe4deb1d3407163b5786f6f5d35"
-              alt=""
-              width="200px"
-              height="200px"
-            />
-            <h3>Bank App</h3>
-          </div>
+          {data.map((d) => (
+            <div className="item">
+              <img src={d.img} alt="" />
+              <h3>{d.title}</h3>
+            </div>
+          ))}
         </div>
       </div>
     </div>

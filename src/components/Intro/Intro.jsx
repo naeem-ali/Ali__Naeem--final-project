@@ -15,7 +15,7 @@ const Intro = () => {
 
   return (
     <div className="intro" id="intro">
-      <section className="main-container">
+      <section className="main-container-intro">
         <img src="images/head-bg.png" alt="home-bg" className="home-bg" />
         <div className="intro-container">
           <div className="left">
